@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 #SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,13.236.152.209').split(',')
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-qc^nta&e!2azfatkv@lhtrak=yqa1c=vp4l-0v=tfbccw6krhr')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -108,11 +108,12 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
     
 ]
-CORS_ALLOW_ALL_ORIGINS = True  # Allows only specific origins
+#CORS_ALLOW_ALL_ORIGINS = True  # Allows only specific origins
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     "http://127.0.0.1:3000",
     'http://0.0.0.0',
+    "http://13.236.152.209:8080",
    
 ]
 
