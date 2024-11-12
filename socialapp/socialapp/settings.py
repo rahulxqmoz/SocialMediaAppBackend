@@ -93,7 +93,7 @@ MIDDLEWARE = [
 CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization',
-    # Add other headers as necessary
+    
 ]
 
 CORS_ALLOW_METHODS = [
