@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 #SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
-DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,13.236.152.209').split(',')
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-qc^nta&e!2azfatkv@lhtrak=yqa1c=vp4l-0v=tfbccw6krhr')
+DEBUG = DEBUG = True
+ALLOWED_HOSTS = ['*']
+SECRET_KEY = 'django-insecure-qc^nta&e!2azfatkv@lhtrak=yqa1c=vp4l-0v=tfbccw6krhr'
 
 
 # Application definition
@@ -91,8 +91,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_HEADERS = [
-    'content-type',
-    'authorization',
+    'Authorization',
+    'Content-Type',
+    'X-CSRFToken',
+
     
 ]
 
@@ -108,7 +110,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     "http://127.0.0.1:3000",
     'http://0.0.0.0',
-    "http://13.236.152.209:8080",
    
 ]
 
@@ -236,11 +237,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/app/staticfiles'    
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  
-]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -282,7 +281,7 @@ AUTH_USER_MODEL = 'core.User'
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/app/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SESSION_COOKIE_SECURE = False  # Change to True in production with HTTPS
