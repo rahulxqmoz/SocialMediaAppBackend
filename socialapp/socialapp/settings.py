@@ -30,11 +30,6 @@ DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,13.236.152.209').split(',')
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-qc^nta&e!2azfatkv@lhtrak=yqa1c=vp4l-0v=tfbccw6krhr')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# SECRET_KEY = 'django-insecure-qc^nta&e!2azfatkv@lhtrak=yqa1c=vp4l-0v=tfbccw6krhr'
-# DEBUG = True
-# ALLOWED_HOSTS = ['127.0.0.1', 'localhost','*']
-
 
 # Application definition
 
@@ -80,21 +75,7 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# REST_FRAMEWORK = {
-#     'AUTH_TOKEN_CLASSES': (
-#         'rest_framework_simplejwt.tokens.AccessToken',
-#         'rest_framework_simplejwt.tokens.RefreshToken',
-#     )
-# }
 
-REST_FRAMEWORK = {
-   'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.TokenAuthentication',
-   ),
-   'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAdminUser'
-   ),
-}
 MIDDLEWARE = [
     
     'django.middleware.security.SecurityMiddleware',
@@ -108,7 +89,21 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
     
 ]
-#CORS_ALLOW_ALL_ORIGINS = True  # Allows only specific origins
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    # Add other headers as necessary
+]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'PATCH', 
+]
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     "http://127.0.0.1:3000",
@@ -153,24 +148,6 @@ CHANNEL_MIDDLEWARE = [
 ]
 
 
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django_redis.cache.RedisCache',
-#         'LOCATION': 'redis://redis:6379/1',  # Redis host and port
-#         'OPTIONS': {
-#             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-#         }
-#     }
-# }
-
-
-
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels.layers.InMemoryChannelLayer",  # Use InMemoryChannelLayer instead of RedisChannelLayer
-#     },
-# }
-
 WSGI_APPLICATION = 'socialapp.wsgi.application'
 
 ASGI_APPLICATION = 'socialapp.asgi.application'
@@ -180,26 +157,6 @@ ASGI_APPLICATION = 'socialapp.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'socialmediapp',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Rahulrj@97',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'socialmediappnew',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Rahulrj@97',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -210,7 +167,6 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
-
 
 
 REST_FRAMEWORK = {
@@ -280,9 +236,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/app/static'     # Location where static files will be collected for production
+STATIC_ROOT = '/app/staticfiles'    
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Directory containing your CSS and other static files
+    BASE_DIR / "static",  
 ]
 
 # Default primary key field type
