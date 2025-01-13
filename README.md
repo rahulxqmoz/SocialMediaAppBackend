@@ -22,7 +22,7 @@ Connectify is the backend for a social media platform designed to enhance user i
 #### Install Docker: Ensure Docker and Docker Compose are installed on your system.
 ##### Clone the Repository:
 ```bash
-git clone https://github.com/yourusername/connectify-backend.git
+git clone https://github.com/rahulxqmoz/SocialMediaAppBackend.git
 cd connectify-backend
 ```
 ### Setting Up the Application
@@ -84,26 +84,28 @@ docker-compose up --build -d
 
 ## 🔄 API Endpoints
 ### User Authentication
-/register/: User registration.
-/login/: User login.
-/token/: Obtain JWT token.
-/token/refresh/: Refresh JWT token.
+- `/register/`: User registration.
+- `/login/`: User login.
+- `/token/`: Obtain JWT token.
+- `/token/refresh/`: Refresh JWT token.
+
 ### Profile Management
-/profile/<user_id>/: Fetch user profile.
-/profile/update/: Update profile details.
-/password/update/: Update user password.
+- `/profile/<user_id>/`: Fetch user profile.
+- `/profile/update/`: Update profile details.
+- `/password/update/`: Update user password.
+
 ### Admin
-/admin/users/: List all users (admin-only).
-/admin/users/<pk>/block/: Block a user (admin-only).
+- `/admin/users/`: List all users (admin-only).
+- `/admin/users/<pk>/block/`: Block a user (admin-only).
 
 ## 🧰 Tools & Technologies
--**Backend**: Django, Django REST Framework, Django Channels, Daphne.
--**Database**: PostgreSQL.
--**Cache**: Redis.
--**Authentication**: JWT, Google OAuth.
--**DevOps**: Docker, Nginx, AWS EC2.
+- **Backend**: Django, Django REST Framework, Django Channels, Daphne.
+- **Database**: PostgreSQL.
+- **Cache**: Redis.
+- **Authentication**: JWT, Google OAuth.
+- **DevOps**: Docker, Nginx, AWS EC2.
 
 ## 📈 Future Enhancements
--**Group Video Calling**: Extend WebRTC integration for group calls.
--**Advanced Analytics**: Provide detailed usage metrics for admins.
--**AI-Powered Features**: Personalized recommendations for users.
+- **Group Video Calling**: Extend WebRTC integration for group calls.
+- **Advanced Analytics**: Provide detailed usage metrics for admins.
+- **AI-Powered Features**: Personalized recommendations for users.
