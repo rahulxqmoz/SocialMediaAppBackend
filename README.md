@@ -60,24 +60,24 @@ Dockerfile: Instructions to build the Django backend image.
 ## 🚀 Deployment
 ### Platform
 AWS EC2: Backend hosted on an EC2 instance with Dockerized services.
-Steps to Deploy
-SSH into your EC2 instance.
-Clone the repository:
+### Steps to Deploy
+#### 1.SSH into your EC2 instance.
+#### 2.Clone the repository:
 ```bash
-git clone https://github.com/yourusername/connectify-backend.git
+git clone https://github.com/rahulxqmoz/SocialMediaAppBackend.git
 ```
-Navigate to the project directory:
+#### 3.Navigate to the project directory:
 ```bash
 cd connectify-backend
 ```
-Start the Docker containers:
+#### 4.Start the Docker containers:
 ```bash
 docker-compose up --build -d
 ```
 ## 🛡️ Security
-Environment Variables: Sensitive information (e.g., database credentials, secret keys) is managed using .env files.
-Google OAuth: Ensures secure login and signup functionality.
-Redis: Manages real-time data in a secure and isolated environment.
+- **Environment Variables**: Sensitive information (e.g., database credentials, secret keys) is managed using .env files.
+-**Google OAuth**: Ensures secure login and signup functionality.
+-**Redis**: Manages real-time data in a secure and isolated environment.
 
 ## 🔄 API Endpoints
 ### User Authentication
@@ -92,13 +92,15 @@ Redis: Manages real-time data in a secure and isolated environment.
 ### Admin
 /admin/users/: List all users (admin-only).
 /admin/users/<pk>/block/: Block a user (admin-only).
+
 ## 🧰 Tools & Technologies
-Backend: Django, Django REST Framework, Django Channels, Daphne.
-Database: PostgreSQL.
-Cache: Redis.
-Authentication: JWT, Google OAuth.
-DevOps: Docker, Nginx, AWS EC2.
+-**Backend**: Django, Django REST Framework, Django Channels, Daphne.
+-**Database**: PostgreSQL.
+-**Cache**: Redis.
+-**Authentication**: JWT, Google OAuth.
+-**DevOps**: Docker, Nginx, AWS EC2.
+
 ## 📈 Future Enhancements
-Group Video Calling: Extend WebRTC integration for group calls.
-Advanced Analytics: Provide detailed usage metrics for admins.
-AI-Powered Features: Personalized recommendations for users.
+-**Group Video Calling**: Extend WebRTC integration for group calls.
+-**Advanced Analytics**: Provide detailed usage metrics for admins.
+-**AI-Powered Features**: Personalized recommendations for users.
