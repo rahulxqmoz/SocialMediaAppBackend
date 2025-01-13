@@ -98,6 +98,9 @@ docker-compose up --build -d
 - `/admin/users/`: List all users (admin-only).
 - `/admin/users/<pk>/block/`: Block a user (admin-only).
 
+### More Endpoints
+For additional endpoints related to other features, please refer to the backend code in the project repository [Backend Repository](https://github.com/rahulxqmoz/SocialMediaAppBackend).
+
 ## 🧰 Tools & Technologies
 - **Backend**: Django, Django REST Framework, Django Channels, Daphne.
 - **Database**: PostgreSQL.
